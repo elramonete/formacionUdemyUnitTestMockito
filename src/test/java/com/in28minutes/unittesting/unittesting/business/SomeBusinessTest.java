@@ -12,7 +12,9 @@ public class SomeBusinessTest {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		int actualResult = business.calculateSum(new int[] { 1,2,3});
 		int expectedResult = 6;
-		assertEquals(expectedResult, actualResult);	
+		System.out.println("expectedResult: " +expectedResult + ", actualResul: " +actualResult );
+		assertEquals(expectedResult, actualResult);
+
 	}
 
 	@Test
