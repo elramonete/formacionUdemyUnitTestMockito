@@ -1,6 +1,7 @@
 package com.in28minutes.unittesting.unittesting.business;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,7 @@ public class SomeBusinessMockTest {
 
 	@Test
 	public void calculateSumUsingDataService_basic() {
+
 		when(dataServiceMock.retrieveAllData()).thenReturn(new int[] { 1, 2, 3 });
 		assertEquals(6, business.calculateSumUsingDataService());
 	}

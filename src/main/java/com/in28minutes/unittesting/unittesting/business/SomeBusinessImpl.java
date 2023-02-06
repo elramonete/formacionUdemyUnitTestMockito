@@ -10,6 +10,15 @@ public class SomeBusinessImpl {
 		this.someDataService = someDataService;
 	}
 
+	public static void main(String [] args){
+		//calcular la suma basica de 3 enteros.
+		SomeBusinessImpl business = new SomeBusinessImpl();
+		int actualResult = business.calculateSum(new int[] { 1,2,3});
+		int expectedResult = 6;
+//		Assertion.assertEquals(expectedResult, actualResult);
+		System.out.println("expectedResult: " +expectedResult + ", actualResul: " +actualResult );
+	}
+
 	public int calculateSum(int[] data) {
 		int sum = 0;
 		for(int value:data) {
