@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 public class ListMockTest {
-
+//https://chuwiki.chuidiang.org/index.php?title=Ejemplo_sencillo_con_Mockito
 	List<String> mock = mock(List.class);
 
 	@Test
@@ -46,6 +46,7 @@ public class ListMockTest {
 
 	@Test
 	public void returnWithGenericParameters() {
+		//cualquiero get(0) get(21) ... get(entero) nos devuelve ese valor "in28Minutes"
 		when(mock.get(anyInt())).thenReturn("in28Minutes");
 
 		assertEquals("in28Minutes", mock.get(0));
@@ -54,17 +55,25 @@ public class ListMockTest {
 
 	@Test
 	public void verificationBasics() {
+
+		//https://www.adictosaltrabajo.com/2009/01/29/mockito/
+
 		// SUT
 		String value1 = mock.get(0);
 		String value2 = mock.get(1);
+		String value3 = mock.get(2);
 
 		// Verify
 		verify(mock).get(0);
-		verify(mock, times(2)).get(anyInt());
+		//llama 3 veces
+		verify(mock, times(3)).get(anyInt());
+		//al menos 1 vez
 		verify(mock, atLeast(1)).get(anyInt());
 		verify(mock, atLeastOnce()).get(anyInt());
-		verify(mock, atMost(2)).get(anyInt());
-		verify(mock, never()).get(2);
+		//maximo 3 veces
+		verify(mock, atMost(3)).get(anyInt());
+		//al tener 3 no podemos poner 2
+		verify(mock, never()).get(3);
 	}
 
 	@Test
