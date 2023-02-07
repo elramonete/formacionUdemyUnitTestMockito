@@ -21,6 +21,9 @@ import org.mockito.ArgumentCaptor;
 
 public class ListMockTest {
 //https://chuwiki.chuidiang.org/index.php?title=Ejemplo_sencillo_con_Mockito
+//	https://www.adictosaltrabajo.com/2009/01/29/mockito/
+	//https://danielme.com/2017/07/24/tutorial-test-doubles-mockito/
+	//https://devs4j.com/2018/04/27/pruebas-unitarias-parte-3-introduccion-a-spying/#:~:text=%C2%BFQu%C3%A9%20es%20un%20Spy%20y,le%20conoce%20como%20partial%20mocking.
 	List<String> mock = mock(List.class);
 
 	@Test
@@ -79,9 +82,9 @@ public class ListMockTest {
 	@Test
 	public void argumentCapturing() {
 		
-		//SUT
+		//SUT añadimos a la lista el valor string "SomeString"
 		mock.add("SomeString");
-		
+
 		//Verification
 		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 		verify(mock).add(captor.capture());
@@ -101,7 +104,7 @@ public class ListMockTest {
 		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 		
 		verify(mock, times(2)).add(captor.capture());
-		
+		//assertEquals("SomeString",captor.getValue();
 		List<String> allValues = captor.getAllValues();
 		
 		assertEquals("SomeString1", allValues.get(0));
@@ -111,6 +114,7 @@ public class ListMockTest {
 
 	@Test
 	public void mocking() {
+		//la diferencia entre mock y spy es la talla "size", mientras que el mock siempre deuvelve 0, el spy devuelve el array de valores.
 		ArrayList arrayListMock = mock(ArrayList.class);
 		System.out.println(arrayListMock.get(0));//null
 		System.out.println(arrayListMock.size());//0
@@ -129,15 +133,21 @@ public class ListMockTest {
 		System.out.println(arrayListSpy.size());//1
 		arrayListSpy.add("Test");
 		arrayListSpy.add("Test2");
-		System.out.println(arrayListSpy.size());//3
+		System.out.println(arrayListSpy.size());//3 comparamos con la linea 120
 		
-		when(arrayListSpy.size()).thenReturn(5);
-		System.out.println(arrayListSpy.size());//5
+		//when(arrayListSpy.size()).thenReturn(5);
+		System.out.println(arrayListSpy.size());//5 aqui devolvemos 5 pq o es 5 o entonces no pasa el test.
 		
 		arrayListSpy.add("Test4");
-		System.out.println(arrayListSpy.size());//5
+		System.out.println(arrayListSpy.size());//5 si tenemos el when linea 135  sino devuelve 4
+
+		arrayListSpy.add("Test5");
+		System.out.println(arrayListSpy.size());//5 si tenemos el when linea 135  sino devuelve 5
+
+		arrayListSpy.add("Test6");
+		System.out.println(arrayListSpy.size());//5 si tenemos el when linea 135  sino devuelve 6
 		
-		verify(arrayListSpy).add("Test4");
+		verify(arrayListSpy).add("Test0");//comprueba o verifica que existe ese valor
 	}
 
 	
