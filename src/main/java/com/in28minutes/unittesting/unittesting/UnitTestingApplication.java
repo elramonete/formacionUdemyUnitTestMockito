@@ -9,4 +9,7 @@ public class UnitTestingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UnitTestingApplication.class, args);
 	}
+	//https://stackoverflow.com/questions/61865206/springboot-2-3-0-while-connecting-to-h2-database
+	//jdbc:h2:mem:testdb
+	//http://localhost:8080/h2-console
 }

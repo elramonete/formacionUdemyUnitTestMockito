@@ -31,5 +31,8 @@ public class ItemController {
 	public List<Item> retrieveAllItems() {
 		return businessService.retrieveAllItems();
 	}
-	
+
+//http://localhost:8080/h2-console
+	//min 2:45 35.step10
+	//http://localhost:8080/all-items-from-database
 }

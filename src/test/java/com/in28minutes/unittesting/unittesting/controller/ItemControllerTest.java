@@ -46,8 +46,8 @@ public class ItemControllerTest {
 
 	@Test
 	public void itemFromBusinessService_basic() throws Exception {
-		when(businessService.retreiveHardcodedItem()).thenReturn(
-				new Item(2,"Item2",10,10));
+	/*	when(businessService.retreiveHardcodedItem()).thenReturn(
+				new Item(2,"Item2",10,10));*/
 		
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/item-from-business-service")
