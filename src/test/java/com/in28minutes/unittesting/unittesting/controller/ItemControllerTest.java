@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -37,9 +38,9 @@ public class ItemControllerTest {
 		
 		MvcResult result = mockMvc.perform(request)
 				.andExpect(status().isOk())
-				.andExpect(content().json("{\"id\": 1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}"))
+				.andExpect(content().json("{\"id\":  1,\"name\":\"Futbol\",\"price\":10,\"quantity\":55}"))
 				.andReturn();
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+//		JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
 		
 	}
 
