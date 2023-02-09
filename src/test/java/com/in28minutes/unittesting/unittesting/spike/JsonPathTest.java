@@ -29,7 +29,7 @@ public class JsonPathTest {
 		assertThat(ids).containsExactly(10000,10001,10002);
 		
 		System.out.println(context.read("$.[1]").toString());
-		System.out.println(context.read("$.[0:2]").toString());
+		System.out.println(context.read("$.[0:3]").toString());
 		System.out.println(context.read("$.[?(@.name=='Eraser')]").toString());
 		System.out.println(context.read("$.[?(@.quantity==5)]").toString());
 		

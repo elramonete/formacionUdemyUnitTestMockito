@@ -27,10 +27,12 @@ public class ItemBusinessServiceTest {
 	@Test
 	public void retrieveAllItems_basic() {
 		when(repository.findAll()).thenReturn(Arrays.asList(new Item(2,"Item2",10,10),
-				new Item(3,"Item3",20,20)));
+				new Item(3,"Item3",20,20),
+				new Item(4,"Item4",5,5)));
 		List<Item> items = business.retrieveAllItems();
 		
 		assertEquals(100, items.get(0).getValue());
 		assertEquals(400, items.get(1).getValue());
+		assertEquals(25, items.get(2).getValue());
 	}
 }
