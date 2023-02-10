@@ -35,4 +35,16 @@ public class ItemBusinessServiceTest {
 		assertEquals(400, items.get(1).getValue());
 		assertEquals(25, items.get(2).getValue());
 	}
+
+
+	@Test
+	public void retreiveHardcodedItem_basic() {
+		//ItemBusinessService business = new ItemBusinessService();
+		//int actualResult = business.retreiveHardcodedItem();
+		Item expected = new Item(1, "Basket", 10, 33);
+		Item actual = business.retreiveHardcodedItem();
+		System.out.println(actual.getName());
+		assertEquals(expected.getName(), actual.getName());
+
+	}
 }
